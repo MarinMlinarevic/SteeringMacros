@@ -12,6 +12,8 @@ parser.add_argument("--enableBIB", action="store_true", default=False, help="Ena
 parser.add_argument("--enableIP", action="store_true", default=False, help="Enable IP overlay")
 parser.add_argument("--TypeEvent", type=str, default="electronGun_pT_0_50", help="Type of event to process")
 parser.add_argument("--InFileName", type=str, default="0", help="Input file name for the simulation")
+parser.add_argument("--input", type=str, default=None, help="Complete input file path within the data directory, " \
+                                                            "overriding the one constructed from --data, --TypeEvent and --InFileName")
 parser.add_argument("--code", type=str, default=".", help="Top-level directory for code")
 parser.add_argument("--data", type=str, default=".", help="Top-level directory for data")
 parser.add_argument("--skipReco", action="store_true", default=False, help="Skip reconstruction")
@@ -30,7 +32,7 @@ parseConstants(CONSTANTS)
 
 read = LcioEvent()
 read.OutputLevel = INFO
-read.Files = [f"{the_args.data}/sim/{the_args.TypeEvent}/{the_args.TypeEvent}_sim_{the_args.InFileName}.slcio"]
+read.Files = [os.path.join(the_args.data, the_args.input if the_args.input else f"sim/{the_args.TypeEvent}/{the_args.TypeEvent}_sim_{the_args.InFileName}.slcio")]
 algList.append(read)
 
 EventNumber = MarlinProcessorWrapper("EventNumber")
