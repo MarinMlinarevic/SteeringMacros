@@ -12,8 +12,8 @@ parser.add_argument("--enableBIB", action="store_true", default=False, help="Ena
 parser.add_argument("--enableIP", action="store_true", default=False, help="Enable IP overlay")
 parser.add_argument("--TypeEvent", type=str, default="muonGun_pT_0_50", help="Type of event to process")
 parser.add_argument("--InFileName", type=str, default="0", help="Input file name for the simulation")
-parser.add_argument("--code", type=str, default="/code", help="Top-level directory for code")
-parser.add_argument("--data", type=str, default="/dataMuC", help="Top-level directory for data")
+parser.add_argument("--code", type=str, default=".", help="Top-level directory for code")
+parser.add_argument("--data", type=str, default=".", help="Top-level directory for data")
 parser.add_argument("--skipReco", action="store_true", default=False, help="Skip reconstruction")
 the_args = parser.parse_args()
 

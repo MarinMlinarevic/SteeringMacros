@@ -10,8 +10,8 @@ from k4FWCore.parseArgs import parser
 
 parser.add_argument("--TypeEvent", type=str, default="electronGun_pT_0_50", help="Type of event to process")
 parser.add_argument("--InFileName", type=str, default="0", help="Input file name for the simulation")
-parser.add_argument("--code", type=str, default="/code", help="Top-level directory for code")
-parser.add_argument("--data", type=str, default="/dataMuC", help="Top-level directory for data")
+parser.add_argument("--code", type=str, default=".", help="Top-level directory for code")
+parser.add_argument("--data", type=str, default=".", help="Top-level directory for data")
 the_args = parser.parse_args()
 
 algList = []
